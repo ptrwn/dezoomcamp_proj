@@ -3,6 +3,7 @@ Data Engineering Zoomcamp 2024 course project
 
 [DASHBOARD](https://lookerstudio.google.com/reporting/fd198067-fc96-4830-8b58-9b887556ca3e/)
 
+## Problem description
 
 The dashboard can be used for analysis of liquor sales and alcohol consumption in Iowa: 
 
@@ -10,6 +11,8 @@ The dashboard can be used for analysis of liquor sales and alcohol consumption i
 - within an arbitrary range of dates;
 - with breakdown by vendors, categories and brands. 
 
+
+## Usage examples
 
 Generic view:
 ![generic view](https://github.com/ptrwn/dezoomcamp_proj/blob/master/pics/report_general_view.jpg)
@@ -24,6 +27,7 @@ Details for January, 2023, for Polk county and spiced rum:
 
 Iowa Liquor Sales [dataset](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data).
 
+## Steps to reproduce
 
 Load data into BigQuery from Google's public dataset:
 ```sql
