@@ -4,11 +4,11 @@ Data Engineering Zoomcamp 2024 course project
 [DASHBOARD](https://lookerstudio.google.com/reporting/fd198067-fc96-4830-8b58-9b887556ca3e/)
 
 
-The dashboard can be used for analysis of liquor sales in Iowa: 
+The dashboard can be used for analysis of liquor sales and alcohol consumption in Iowa: 
 
 - for specific locations - counties, towns, and stores;
 - within an arbitrary range of dates;
-- breakdown by vendors, categories and brands. 
+- with breakdown by vendors, categories and brands. 
 
 
 Generic view:
@@ -24,10 +24,15 @@ Details for January, 2023, for Polk county and spiced rum:
 
 Iowa Liquor Sales [dataset](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data).
 
-Load data into BigQuery from Google's public dataset:
 
+Load data into BigQuery from Google's public dataset:
 ```sql
 CREATE TABLE `radiant-firefly-412220.booze.iowa_sales` AS
 SELECT * FROM `bigquery-public-data.iowa_liquor_sales.sales`;
 ```
 
+Add a column for name of week day and fill it in:
+```sql
+ALTER TABLE radiant-firefly-412220.booze.iowa_sales ADD COLUMN weekday STRING;
+UPDATE radiant-firefly-412220.booze.iowa_sales SET weekday = FORMAT_DATE('%A', date) WHERE TRUE;
+```
